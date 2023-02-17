@@ -1,0 +1,120 @@
+﻿<Window x:Class="TaskManager_Homework1.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaskManager_Homework1.Views"
+        mc:Ignorable="d"
+        Title="Task Manager" Height="550" Width="900" WindowStartupLocation="CenterScreen" Icon="/Images/icons8-system-task-16.png">
+    <Grid>
+        <Label
+            Height="35"
+            Width="100"
+            Content="Processes"
+            FontSize="20"
+            Margin="-780 0 -5 480">
+        </Label>
+
+        <Label
+            Height="35"
+            Width="100"
+            Content="Black List"
+            FontSize="20"
+            Margin="150 0 -5 480">
+        </Label>
+
+        <Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="7*"></RowDefinition>
+                </Grid.RowDefinitions>
+            </Grid>
+            <Grid
+              Grid.Row="1"
+              Height="400" 
+              Width="900"
+              Margin="0 0 0 30">
+                <ListView Height="400" 
+                          Width="450"
+                          ItemsSource="{Binding Processes}" 
+                          Name="listviewProcess"
+                          Margin="0 0 445 0">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="100" Header="Id" DisplayMemberBinding="{Binding Id}"/>
+                            <GridViewColumn Width="100" Header="Process Name" DisplayMemberBinding="{Binding ProcessName}"/>
+                            <GridViewColumn Width="100" Header="Handle Count" DisplayMemberBinding="{Binding HandleCount}"/>
+                            <GridViewColumn Width="100" Header="Thread Count" DisplayMemberBinding="{Binding Threads.Count}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+                <ListView
+                    Height="400"
+                    Width="410"
+                    Margin="450 0 0 0"
+                    Name="listBlacklist"
+                    ItemsSource="{Binding BlackList}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="100" Header="Id" DisplayMemberBinding="{Binding Id}"/>
+                            <GridViewColumn Width="100" Header="Process Name" DisplayMemberBinding="{Binding ProcessName}"/>
+                            <GridViewColumn Width="100" Header="Handle Count" DisplayMemberBinding="{Binding HandleCount}"/>
+                            <GridViewColumn Width="100" Header="Thread Count" DisplayMemberBinding="{Binding Threads.Count}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+
+            <Grid Grid.Row="0" 
+                  Height="70"
+                  Width="900" 
+                  Margin="0 0 0 -430">
+                <Button
+                    Height="25"
+                    Width="100"
+                    Content="End Task"
+                    FontSize="16"
+                    Name="btnEnd"
+                    Margin="750 20 40 0"
+                    Command="{Binding EndTaskCommand}">
+                </Button>
+
+                <Button
+                    Height="25"
+                    Width="120"
+                    Content="Add To Black List"
+                    FontSize="13"
+                    Name="btnAdd"
+                    Margin="500 20 40 0"
+                    Command="{Binding AddBlackListCommand}">
+                </Button>
+
+                <Button
+                    Height="25"
+                    Width="100"
+                    Content="Create"
+                    FontSize="16"
+                    Margin="-500 20 40 0"
+                    Command="{Binding CreateTaskCommand}">
+                </Button>
+
+                <Label
+                    Height="30"
+                    Width="100"
+                    Margin="-390 5 400 40"
+                    Content="Task Name:"
+                    FontSize="14">
+                </Label>
+
+                <TextBox
+                    Height="25"
+                    Width="100"
+                    Margin="-380 20 400 0"
+                    Name="txbProcess">
+                </TextBox>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

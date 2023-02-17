@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>TaskManager_Homework1</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="icons8-system-task-16.png" />
+    <None Remove="Images\icons8-system-task-16.png" />
+    <None Remove="Views\icons8-system-task-16.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\icons8-system-task-16.png" />
+  </ItemGroup>
+
+</Project>
